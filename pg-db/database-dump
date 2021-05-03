@@ -1,0 +1,448 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 12.6 (Ubuntu 12.6-0ubuntu0.20.04.1)
+-- Dumped by pg_dump version 12.6 (Ubuntu 12.6-0ubuntu0.20.04.1)
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+SET default_tablespace = '';
+
+SET default_table_access_method = heap;
+
+--
+-- Name: baseproducts; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.baseproducts (
+    product_id integer NOT NULL,
+    name character varying(50) NOT NULL,
+    category_id integer NOT NULL,
+    price integer NOT NULL,
+    color_id integer NOT NULL,
+    images text[]
+);
+
+
+ALTER TABLE public.baseproducts OWNER TO "postgres";
+
+--
+-- Name: baseproducts_product_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.baseproducts_product_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.baseproducts_product_id_seq OWNER TO "postgres";
+
+--
+-- Name: baseproducts_product_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.baseproducts_product_id_seq OWNED BY public.baseproducts.product_id;
+
+
+--
+-- Name: category; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.category (
+    category_id integer NOT NULL,
+    name character varying(50) NOT NULL
+);
+
+
+ALTER TABLE public.category OWNER TO "postgres";
+
+--
+-- Name: category_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.category_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.category_id_seq OWNER TO "postgres";
+
+--
+-- Name: category_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.category_id_seq OWNED BY public.category.category_id;
+
+
+--
+-- Name: color; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.color (
+    color_id integer NOT NULL,
+    name character varying(25),
+    hexcode character varying(50) NOT NULL,
+    price integer
+);
+
+
+ALTER TABLE public.color OWNER TO "postgres";
+
+--
+-- Name: color_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.color_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.color_id_seq OWNER TO "postgres";
+
+--
+-- Name: color_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.color_id_seq OWNED BY public.color.color_id;
+
+
+--
+-- Name: customers; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.customers (
+    id integer NOT NULL,
+    name character varying(50) NOT NULL,
+    address character varying(50) NOT NULL,
+    email character varying(255) NOT NULL,
+    created_on timestamp without time zone DEFAULT now() NOT NULL
+);
+
+
+ALTER TABLE public.customers OWNER TO "postgres";
+
+--
+-- Name: customers_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.customers_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.customers_id_seq OWNER TO "postgres";
+
+--
+-- Name: customers_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.customers_id_seq OWNED BY public.customers.id;
+
+
+--
+-- Name: fonts; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.fonts (
+    font_id integer NOT NULL,
+    name character varying(25) NOT NULL,
+    price integer
+);
+
+
+ALTER TABLE public.fonts OWNER TO "postgres";
+
+--
+-- Name: fonts_font_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.fonts_font_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.fonts_font_id_seq OWNER TO "postgres";
+
+--
+-- Name: fonts_font_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.fonts_font_id_seq OWNED BY public.fonts.font_id;
+
+
+--
+-- Name: baseproducts product_id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.baseproducts ALTER COLUMN product_id SET DEFAULT nextval('public.baseproducts_product_id_seq'::regclass);
+
+
+--
+-- Name: category category_id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.category ALTER COLUMN category_id SET DEFAULT nextval('public.category_id_seq'::regclass);
+
+
+--
+-- Name: color color_id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.color ALTER COLUMN color_id SET DEFAULT nextval('public.color_id_seq'::regclass);
+
+
+--
+-- Name: customers id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.customers ALTER COLUMN id SET DEFAULT nextval('public.customers_id_seq'::regclass);
+
+
+--
+-- Name: fonts font_id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.fonts ALTER COLUMN font_id SET DEFAULT nextval('public.fonts_font_id_seq'::regclass);
+
+
+--
+-- Data for Name: baseproducts; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.baseproducts (product_id, name, category_id, price, color_id, images) FROM stdin;
+1	Crewneck Basic Sweatshirt	1	30	1	\N
+2	Crewneck Basic Sweatshirt	1	30	2	\N
+3	Cloth Mask	5	5	1	\N
+4	Cloth Mask	5	5	2	\N
+5	Cloth Mask	5	5	5	\N
+6	Mug	4	5	1	\N
+7	Mug	4	5	2	\N
+\.
+
+
+--
+-- Data for Name: category; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.category (category_id, name) FROM stdin;
+1	sweatshirt
+2	shirt
+3	tee
+4	mug
+5	mask
+\.
+
+
+--
+-- Data for Name: color; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.color (color_id, name, hexcode, price) FROM stdin;
+1	white	#FFFFFF	3
+2	black	#000000	3
+3	yellow	#FFFF00	2
+4	grey	#A9A9A9	3
+5	pink	#FFC0CB	5
+6	blue	#87CEFA	4
+\.
+
+
+--
+-- Data for Name: customers; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.customers (id, name, address, email, created_on) FROM stdin;
+2	snehi	18639 liggett st Northridge, CA - 91324	snehi.pachchigar.813@my.csun.edu	2021-05-01 20:32:59.909161
+3	rohan	California	rohan.gaikwad.109@my.csun.edu	2021-05-01 22:27:20.620494
+4	Gabriella	California	gabriellajeane.deasis.167@my.csun.edu	2021-05-01 22:28:55.525982
+5	Zhou	California	zhou.wu.735@my.csun.edu	2021-05-01 22:28:56.660478
+\.
+
+
+--
+-- Data for Name: fonts; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.fonts (font_id, name, price) FROM stdin;
+1	Calibiri	2
+2	Roboto	2
+3	Dancing Script	3
+4	Pacifico	3
+5	Comic Sans	2
+6	Yellowtail	3
+\.
+
+
+--
+-- Name: baseproducts_product_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.baseproducts_product_id_seq', 7, true);
+
+
+--
+-- Name: category_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.category_id_seq', 5, true);
+
+
+--
+-- Name: color_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.color_id_seq', 6, true);
+
+
+--
+-- Name: customers_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.customers_id_seq', 5, true);
+
+
+--
+-- Name: fonts_font_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.fonts_font_id_seq', 6, true);
+
+
+--
+-- Name: baseproducts baseproducts_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.baseproducts
+    ADD CONSTRAINT baseproducts_pkey PRIMARY KEY (product_id, category_id, color_id);
+
+
+--
+-- Name: category category_name_key; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.category
+    ADD CONSTRAINT category_name_key UNIQUE (name);
+
+
+--
+-- Name: category category_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.category
+    ADD CONSTRAINT category_pkey PRIMARY KEY (category_id);
+
+
+--
+-- Name: color color_hexcode_key; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.color
+    ADD CONSTRAINT color_hexcode_key UNIQUE (hexcode);
+
+
+--
+-- Name: color color_name_key; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.color
+    ADD CONSTRAINT color_name_key UNIQUE (name);
+
+
+--
+-- Name: color color_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.color
+    ADD CONSTRAINT color_pkey PRIMARY KEY (color_id);
+
+
+--
+-- Name: customers customers_email_key; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.customers
+    ADD CONSTRAINT customers_email_key UNIQUE (email);
+
+
+--
+-- Name: customers customers_name_key; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.customers
+    ADD CONSTRAINT customers_name_key UNIQUE (name);
+
+
+--
+-- Name: customers customers_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.customers
+    ADD CONSTRAINT customers_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: fonts fonts_name_key; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.fonts
+    ADD CONSTRAINT fonts_name_key UNIQUE (name);
+
+
+--
+-- Name: fonts fonts_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.fonts
+    ADD CONSTRAINT fonts_pkey PRIMARY KEY (font_id);
+
+
+--
+-- Name: baseproducts baseproducts_category_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.baseproducts
+    ADD CONSTRAINT baseproducts_category_id_fkey FOREIGN KEY (category_id) REFERENCES public.category(category_id);
+
+
+--
+-- Name: baseproducts baseproducts_color_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.baseproducts
+    ADD CONSTRAINT baseproducts_color_id_fkey FOREIGN KEY (color_id) REFERENCES public.color(color_id);
+
+
+--
+-- PostgreSQL database dump complete
+--
+

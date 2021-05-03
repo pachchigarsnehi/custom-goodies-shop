@@ -1,10 +1,12 @@
+const dotenv = require('dotenv');
+dotenv.config();
 const Pool = require('pg').Pool
 const pool = new Pool({
-  user: 'goodies-shop',
-  host: 'localhost',
-  database: 'goodies-shop',
-  password: '12345',
-  port: 5432,
+  user: process.env.RDS_USERNAME,
+  host: process.env.RDS_HOSTNAME,
+  database: process.env.RDS_DB_NAME,
+  password: process.env.RDS_PASSWORD,
+  port: process.env.RDS_PORT,
 });
 const getCustomers = () => {
     return new Promise(function(resolve, reject) {
