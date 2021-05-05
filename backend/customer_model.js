@@ -1,13 +1,5 @@
-const dotenv = require('dotenv');
-dotenv.config();
-const Pool = require('pg').Pool
-const pool = new Pool({
-  user: process.env.RDS_USERNAME,
-  host: process.env.RDS_HOSTNAME,
-  database: process.env.RDS_DB_NAME,
-  password: process.env.RDS_PASSWORD,
-  port: process.env.RDS_PORT,
-});
+const pool = require('./pg_pool').pool
+
 
 const getCustomers = (request, response) => {
   pool.query('SELECT * FROM customers ORDER BY id ASC', (error, results) => {
@@ -30,7 +22,7 @@ const getCustomerByID = (request, response) => {
 
 const updateCustomer = (request, response) => {
   const id = parseInt(request.params.id)
-  const { name, email } = request.body
+  const { name, email, address } = request.body
 
   pool.query(
     'UPDATE customers SET name = $1, email = $2, address = $3 WHERE id = $4',
