@@ -90,3 +90,48 @@ INSERT INTO BaseProducts(name, category_id, price, color_id) VALUES(
     5,
     1
 );
+INSERT INTO BaseProducts(name, category_id, price, color_id) VALUES(
+    'Crewnech Basic Sweatshirt',
+    1,
+    30,
+    3
+);
+
+INSERT INTO BaseProducts(name, category_id, price, color_id) VALUES(
+    'Crewnech Basic Sweatshirt',
+    1,
+    20,
+    4
+);
+INSERT INTO BaseProducts(name, category_id, price, color_id) VALUES(
+    'Crewnech Basic Sweatshirt',
+    1,
+    20,
+    6
+);
+
+INSERT INTO BaseProducts(name, category_id, price, color_id) VALUES(
+    'Basic Shirt',
+    2,
+    10,
+    1
+);
+INSERT INTO BaseProducts(name, category_id, price, color_id) VALUES(
+    'Basic Shirt',
+    2,
+    10,
+    1
+);
+INSERT INTO BaseProducts(name, category_id, price, color_id) VALUES(
+    'Basic Shirt',
+    2,
+    10,
+    2
+);
+INSERT INTO BaseProducts(name, category_id, price, color_id) VALUES(
+    'Basic Shirt',
+    2,
+    10,
+    6
+);
+

@@ -8,41 +8,71 @@ const pool = new Pool({
   password: process.env.RDS_PASSWORD,
   port: process.env.RDS_PORT,
 });
-const getCustomers = () => {
-    return new Promise(function(resolve, reject) {
-      pool.query('SELECT * FROM customers ORDER BY id ASC', (error, results) => {
-        if (error) {
-          reject(error)
-        }
-        resolve(results);
-      })
-    }) 
-  }
-  const createCustomer = (body) => {
-    return new Promise(function(resolve, reject) {
-      const { name, address, email } = body
-      pool.query('INSERT INTO customers (name, address, email) VALUES ($1, $2, $3) RETURNING *', [name, address, email], (error, results) => {
-        if (error) {
-          reject(error)
-        }
-        resolve(`A new customer has been added added: ${results.rows[0]}`)
-      })
-    })
-  }
-  const deleteCustomer = () => {
-    return new Promise(function(resolve, reject) {
-      const id = parseInt(request.params.id)
-      pool.query('DELETE FROM customers WHERE id = $1', [id], (error, results) => {
-        if (error) {
-          reject(error)
-        }
-        resolve(`customer deleted with ID: ${id}`)
-      })
-    })
-  }
-  
-  module.exports = {
-    getCustomers,
-    createCustomer,
-    deleteCustomer,
-  }
+
+const getCustomers = (request, response) => {
+  pool.query('SELECT * FROM customers ORDER BY id ASC', (error, results) => {
+    if (error) {
+      response.status(500).send(error);
+    }
+    response.status(200).json(results.rows)
+  })
+}
+const getCustomerByID = (request, response) => {
+  const id = parseInt(request.params.id)
+
+  pool.query('SELECT * FROM customers WHERE id = $1', [id], (error, results) => {
+    if (error) {
+      response.status(500).send(error);
+    }
+    response.status(200).json(results.rows)
+  })
+}
+
+const updateCustomer = (request, response) => {
+  const id = parseInt(request.params.id)
+  const { name, email } = request.body
+
+  pool.query(
+    'UPDATE customers SET name = $1, email = $2, address = $3 WHERE id = $4',
+    [name, email, address, id],
+    (error, results) => {
+      if (error) {
+        response.status(500).send(error);
+      }
+      response.status(200).send(`User modified with ID: ${id}`)
+    }
+  )
+}
+
+const createCustomer = (request, response) => {
+  const { name, email, address } = request.body
+  console.log(request.body)
+  console.log(name, address, email)
+  pool.query('INSERT INTO customers (name, address, email) VALUES ($1, $2, $3)  RETURNING *', [name, address, email], (error, results) => {
+    if (error) {
+      throw error
+    }
+    console.log(results.rows[0].id)
+    response.status(201).send(`User added with ID: ${results.rows[0].id}, named ${results.rows[0].name}`)
+  })
+}
+
+
+const deleteCustomer = (request, response) => {
+  const id = parseInt(request.params.id)
+
+  pool.query('DELETE FROM customers WHERE id = $1', [id], (error, results) => {
+    if (error) {
+      response.status(500).send(error);
+    }
+    response.status(200).send(`User deleted with ID: ${id}`)
+  })
+}
+
+module.exports = {
+  getCustomers,
+  getCustomerByID,
+  createCustomer,
+  updateCustomer,
+  deleteCustomer,
+}
