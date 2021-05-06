@@ -28,6 +28,17 @@ const getBaseProductsByCategoryID = (request, response) => {
         response.status(200).json(results.rows)
     })
 }
+
+const getBaseProductsByColorID = (request, response) => {
+    const id = parseInt(request.params.id)
+
+    pool.query('SELECT * FROM baseproducts WHERE color_id = $1', [id], (error, results) => {
+        if (error) {
+        response.status(500).send(error);
+        }
+        response.status(200).json(results.rows)
+    })
+}
   
 const updateBaseProduct = (request, response) => {
     const id = parseInt(request.params.id)
@@ -74,6 +85,7 @@ const deleteProductByID = (request, response) => {
     getBaseProducts,
     getBaseProductByID,
     getBaseProductsByCategoryID,
+    getBaseProductsByColorID,
     createBaseProduct,
     updateBaseProduct,
     deleteProductByID

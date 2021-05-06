@@ -2,6 +2,7 @@ const express = require("express");
 const customer_model = require("./customer_model")
 const product_model = require("./products_model")
 const category_model = require("./category_model")
+const color_model = require("./color_model")
 
 const app = express();
 const port = process.env.PORT || "8000";
@@ -28,12 +29,16 @@ app.delete('/customers/:id', customer_model.deleteCustomer)
 app.get('/products', product_model.getBaseProducts)
 app.get('/products/:id', product_model.getBaseProductByID)
 app.get('/products/category/:id', product_model.getBaseProductsByCategoryID)
+app.get('/products/color/:id', product_model.getBaseProductsByColorID)
 app.post('/products', product_model.createBaseProduct)
 app.put('/products/:id', product_model.updateBaseProduct)
 app.delete('/products/:id', product_model.deleteProductByID)
 
 app.get('/category', category_model.getCategories)
 app.get('/category/:id', category_model.getCategoryByID)
+
+app.get('/color', color_model.getColors)
+app.get('/color/:id', color_model.getColorByID)
 
 app.listen(port, () => {
     console.log(`Listening to requests on http://localhost:${port}`);
