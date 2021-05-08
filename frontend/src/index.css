@@ -1,0 +1,179 @@
+
+
+html {
+  font-size: 62.5%; /* default font size for browser is 16px -> then 16px x 62.5 = 10px = 1rem */
+  box-sizing: border-box; /* manage padding */
+}
+
+body {
+
+  margin: 0;
+  height : 100vh;
+  font-size: 1.6rem;
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root{
+  height: 100%;
+}
+
+/* Layout */
+
+.grid-container {
+  display: grid;
+  grid-template-areas: 'header'
+  'main'
+  'footer';
+  grid-template-columns: 1fr;
+  grid-template-rows: 5rem 1fr 5rem;
+  height: 100%;
+}
+
+header {
+  grid-area: header;
+  background-color: rgb(9, 9, 20);
+
+}
+
+main {
+  grid-area: main;
+  padding: 1rem;
+}
+
+footer {
+  grid-area: footer;
+  background-color: rgb(20, 20, 20);
+  color: white;
+}
+
+/* common classes */
+
+h1 {
+  font-size: 1.8rem;
+  padding: 1rem 0;
+}
+
+h2 {
+  font-size: 1.6rem;
+  padding: 1rem 0;
+}
+
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  color: orange;
+}
+
+header a{ /*for all links insider header */
+  color: white;
+  padding: 1rem;
+}
+
+a.brand {
+  color: white;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.row { /* row class to pace items in nav bar using flex */
+  display: flex;
+  flex-wrap: wrap; /* to make responsive */
+  justify-content:space-between;
+  align-items: center;
+}
+
+.row.center {
+  justify-content:left;
+}
+
+.col-1{
+  flex: 1 1 25rem;
+}
+
+.col-2{
+  flex: 2 1 50rem;
+}
+
+ul{
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+li{
+  margin-top: 1rem;
+}
+
+button{
+  padding:1rem;
+  border-radius: 0.5rem;
+  border:  #a4a4a4 ;
+  font-size: 1.6rem;
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f8f8f8;
+  cursor: pointer;
+}
+
+button.primary{
+  background-color: #f0c040;
+}
+
+button.block{
+  width: 100%;
+}
+
+button:hover{
+  border: 0.1rem #404040 solid;
+}
+
+img {
+  height: 220px;
+  width: 220px;
+  border-radius: 3px;
+}
+
+img.medium{
+  
+  max-width: 10px;
+}
+
+img.large{
+  width:400px;
+  height:350px;
+  margin: 5% 5%;
+}
+
+.card {
+  border: 0.1rem gray solid;
+  border-radius: 5px;
+  background-color: rgb(247, 247, 247);
+  margin: 1rem;
+}
+
+.card-body {
+  padding: 1rem;
+}
+
+.card-body > * {
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.price {
+  font-size: 2rem;
+}
+
+.success{
+  color: #20a020;
+}
+
+.error{
+  color: #a02020;
+}
