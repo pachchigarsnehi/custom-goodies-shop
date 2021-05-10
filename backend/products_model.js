@@ -1,16 +1,16 @@
-const pool = require('./pg_pool').pool
-const getBaseProducts = (request, response) => {
-    pool.query('SELECT * FROM baseproducts ORDER BY product_id ASC', (error, results) => {
+const pool = require("./pg_pool"); 
+const getBaseProducts = async (request, response) => {
+    await pool.query('SELECT * FROM baseproducts ORDER BY product_id ASC', (error, results) => {
         if (error) {
         response.status(500).send(error);
         }
-        response.status(200).json(results)
+        response.status(200).json(results.rows)
     })
 }
-const getBaseProductByID = (request, response) => {
+const getBaseProductByID = async (request, response) => {
     const id = parseInt(request.params.id)
 
-    pool.query('SELECT * FROM baseproducts WHERE product_id = $1', [id], (error, results) => {
+    await pool.query('SELECT * FROM baseproducts WHERE product_id = $1', [id], (error, results) => {
         if (error) {
         response.status(500).send(error);
         }
@@ -18,10 +18,10 @@ const getBaseProductByID = (request, response) => {
     })
 }
 
-const getBaseProductsByCategoryID = (request, response) => {
+const getBaseProductsByCategoryID = async (request, response) => {
     const id = parseInt(request.params.id)
 
-    pool.query('SELECT * FROM baseproducts WHERE category_id = $1', [id], (error, results) => {
+    await pool.query('SELECT * FROM baseproducts WHERE category_id = $1', [id], (error, results) => {
         if (error) {
         response.status(500).send(error);
         }
@@ -29,10 +29,10 @@ const getBaseProductsByCategoryID = (request, response) => {
     })
 }
 
-const getBaseProductsByColorID = (request, response) => {
+const getBaseProductsByColorID = async (request, response) => {
     const id = parseInt(request.params.id)
 
-    pool.query('SELECT * FROM baseproducts WHERE color_id = $1', [id], (error, results) => {
+    await pool.query('SELECT * FROM baseproducts WHERE color_id = $1', [id], (error, results) => {
         if (error) {
         response.status(500).send(error);
         }
@@ -40,11 +40,11 @@ const getBaseProductsByColorID = (request, response) => {
     })
 }
   
-const updateBaseProduct = (request, response) => {
+const updateBaseProduct = async (request, response) => {
     const id = parseInt(request.params.id)
     const { name, category_id, price, color_id, images } = request.body
 
-    pool.query(
+    await pool.query(
         'UPDATE baseproducts SET name = $1, category_id = $2, price = $3, color_id= $4, images = $5 WHERE product_id = $6',
         [name, category_id, price, color_id, images, id],
         (error, results) => {
@@ -56,11 +56,11 @@ const updateBaseProduct = (request, response) => {
     )
 }
   
-const createBaseProduct = (request, response) => {
+const createBaseProduct = async (request, response) => {
     const { name, category_id, price, color_id, images } = request.body
     console.log(request.body)
     console.log(name, address, email)
-    pool.query('INSERT INTO baseproducts (name, category_id, price, color_id, images) VALUES ($1, $2, $3, $4, $5)  RETURNING *', [name, category_id, price, color_id, images], (error, results) => {
+    await pool.query('INSERT INTO baseproducts (name, category_id, price, color_id, images) VALUES ($1, $2, $3, $4, $5)  RETURNING *', [name, category_id, price, color_id, images], (error, results) => {
         if (error) {
         throw error
         }
@@ -70,10 +70,10 @@ const createBaseProduct = (request, response) => {
 }
   
   
-const deleteProductByID = (request, response) => {
+const deleteProductByID = async (request, response) => {
     const id = parseInt(request.params.id)
 
-    pool.query('DELETE FROM baseproducts WHERE product_id = $1', [id], (error, results) => {
+    await pool.query('DELETE FROM baseproducts WHERE product_id = $1', [id], (error, results) => {
         if (error) {
         response.status(500).send(error);
         }
