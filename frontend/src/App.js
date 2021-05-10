@@ -1,46 +1,44 @@
+import React, { Fragment } from "react";
+import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 
-import { BrowserRouter, Route } from 'react-router-dom';
-import Product from './components/Product';
-import HomeScreen from './screens/HomeScreen';
-import ProductScreen from './screens/ProductScreen';
+// components import
+import ShowProducts from "./components/Products";
 
 function App() {
-  
   return (
-    
-    <BrowserRouter>
-    <div className="grid-container">
-        {/*header*/}
-        <header className="row">
-          <div>
-            {/*left hand side brand logo*/}
-            <a className="brand" href="/">Mask Shop</a>
-          </div>
-          <div>
-            {/*right hand side options*/}
-            <a href="/cart">Cart</a>
-            <a href="/signin">Sign In</a>
-          </div>
-        </header>
-        
-        
-        {/*main content with product cards */}
-        <main>
-        
-        {/* Setting routes - when user takes action then following path will lead to corresponding component*/}
-        <Route path="/product/:id" component={ProductScreen}></Route>
-        <Route path="/" component={HomeScreen} exact></Route> 
+    <Fragment>
+      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <Navbar.Brand href="#home">Goodies Shop</Navbar.Brand>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav className="mr-auto">
+            <Nav.Link href="#features">Features</Nav.Link>
+            <Nav.Link href="#pricing">Pricing</Nav.Link>
+            <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
+              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.2">
+                Another action
+              </NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action/3.4">
+                Separated link
+              </NavDropdown.Item>
+            </NavDropdown>
+          </Nav>
+          <Nav>
+            <Nav.Link href="#deets">Add to cart</Nav.Link>
+            <Nav.Link eventKey={2} href="#memes">
+              Sign in
+            </Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Navbar>
 
-       
-        </main>
-        
-        {/*footer */}
-        <footer className="row center">
-          All rights reserved
-        </footer>
+      <div>
+        <ShowProducts />
       </div>
-    </BrowserRouter>
-  
+    </Fragment>
   );
 }
 
