@@ -1,5 +1,8 @@
 import React, { Fragment, useState, useEffect } from "react";
-import * as ReactBootStrap from "react-bootstrap";
+import { Card, ListGroup, ListGroupItem } from "react-bootstrap";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 const ShowProducts = () => {
   //use state and hooks
@@ -30,24 +33,24 @@ const ShowProducts = () => {
         (
           product // with product object in json
         ) => (
-          <ReactBootStrap.Card style={{ width: "18rem" }}>
-            <ReactBootStrap.Card.Img variant="top" src={product.images[0]} />
-            <ReactBootStrap.Card.Body>
-              <ReactBootStrap.Card.Title>
-                {product.name}
-              </ReactBootStrap.Card.Title>
-            </ReactBootStrap.Card.Body>
-            <ReactBootStrap.ListGroup className="list-group-flush">
-              <ReactBootStrap.ListGroupItem>
-                {product.price}$
-              </ReactBootStrap.ListGroupItem>
-            </ReactBootStrap.ListGroup>
-            <ReactBootStrap.Card.Body>
-              <ReactBootStrap.Card.Link href="#">
-                Buy Now
-              </ReactBootStrap.Card.Link>
-            </ReactBootStrap.Card.Body>
-          </ReactBootStrap.Card>
+          <Container fluid="md">
+            <Row>
+              <Col>
+                <Card style={{ width: "18rem" }}>
+                  <Card.Img variant="top" src={product.images[0]} />
+                  <Card.Body>
+                    <Card.Title>{product.name}</Card.Title>
+                  </Card.Body>
+                  <ListGroup className="list-group-flush">
+                    <ListGroupItem>{product.price}$</ListGroupItem>
+                  </ListGroup>
+                  <Card.Body>
+                    <Card.Link href="#">Buy Now</Card.Link>
+                  </Card.Body>
+                </Card>
+              </Col>
+            </Row>
+          </Container>
         )
       )}
     </Fragment>
