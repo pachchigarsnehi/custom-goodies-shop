@@ -1,16 +1,20 @@
-import React, { Fragment, useState, useEffect } from "react";
-import * as ReactBootStrap from "react-bootstrap";
+import React, { useState, useEffect } from "react";
+import '../components/products.css';
 
-const ShowProducts = () => {
+
+
+const AllProducts = () => {
   //use state and hooks
   const [products, setProducts] = useState([]);
 
+
+
   // function to get and show all products
   const getProducts = async () => {
+  
     try {
-      const response = await fetch("http://localhost:8000/products");
+      const response = await fetch("http://localhost:8000/products/");
       const jsonData = await response.json();
-
       //console.log(jsonData);
       setProducts(jsonData);
     } catch (err) {
@@ -22,36 +26,36 @@ const ShowProducts = () => {
     getProducts();
   }, []);
 
-  //console.log(products);
+
 
   return (
-    <Fragment>
-      {products.map(
-        (
-          product // with product object in json
-        ) => (
-          <ReactBootStrap.Card style={{ width: "18rem" }}>
-            <ReactBootStrap.Card.Img variant="top" src={product.images[0]} />
-            <ReactBootStrap.Card.Body>
-              <ReactBootStrap.Card.Title>
-                {product.name}
-              </ReactBootStrap.Card.Title>
-            </ReactBootStrap.Card.Body>
-            <ReactBootStrap.ListGroup className="list-group-flush">
-              <ReactBootStrap.ListGroupItem>
-                {product.price}$
-              </ReactBootStrap.ListGroupItem>
-            </ReactBootStrap.ListGroup>
-            <ReactBootStrap.Card.Body>
-              <ReactBootStrap.Card.Link href="#">
-                Buy Now
-              </ReactBootStrap.Card.Link>
-            </ReactBootStrap.Card.Body>
-          </ReactBootStrap.Card>
-        )
-      )}
-    </Fragment>
+
+    <div className="products-grid">
+      {products.map((product) => (
+        
+        <div key={product.product_id} className="card">
+        
+          <div className="medium-image">
+          
+          <a href={`/products/${product.product_id}`}>
+          <img src={product.images[0]} alt={product.name} />
+            </a>
+          
+          </div>
+        
+          <div className="product-name">
+            {product.name}
+          </div>
+          
+          <div className="product-price">
+            {product.price}$
+          </div>
+        
+        </div>
+      
+      ))}
+    </div>
   );
 };
 
-export default ShowProducts;
+  export default AllProducts;
