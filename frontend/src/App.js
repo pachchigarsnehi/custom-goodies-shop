@@ -1,12 +1,18 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
+import { BrowserRouter,Route } from "react-router-dom";
+import HomeScreen from "./components/HomeScreen";
+import ProductScreen from "./components/ProductScreen";
+import './index.css';
 
-// components import
-import ShowProducts from "./components/Products";
 
 function App() {
   return (
-    <Fragment>
+
+
+    <BrowserRouter>
+
+    
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Navbar.Brand href="#home">Goodies Shop</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -35,10 +41,22 @@ function App() {
         </Navbar.Collapse>
       </Navbar>
 
-      <div>
-        <ShowProducts />
+
+  
+    
+      <div classname="main">
+      <Route path="/" component={HomeScreen} exact></Route>
+      <Route path="/products/:id" component={ProductScreen}></Route>
       </div>
-    </Fragment>
+
+
+      <div className="footer">Copyright CSUN</div>
+    
+    
+      </BrowserRouter>
+
+
+    
   );
 }
 
