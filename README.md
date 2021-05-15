@@ -6,6 +6,8 @@ Project has 3 components:
 2. Backend - Node Express API, to fetch data from database. Checkout [README](https://github.com/pachchigarsnehi/custom-goodies-shop/blob/main/backend/README.md) for more details.
 3. Database - Postgress database on RDS
 
+
+To run locally, run frontend and backend on same machine by this
 Run Frontend by
 ```
 cd frontend/src
@@ -17,3 +19,5 @@ Run Backend by
 cd backend
 npm run dev
 ```
+
+Follow instructions in backend folder to make the `.env` file
