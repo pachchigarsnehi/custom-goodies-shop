@@ -1,5 +1,5 @@
 import React from "react";
-import '../components/products.css';
+import '../index.css';
 import AllProducts from './Products';
 
 

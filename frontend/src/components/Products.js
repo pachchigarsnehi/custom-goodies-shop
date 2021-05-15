@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import '../components/products.css';
+import '../index.css';
 
 
 
@@ -30,24 +30,24 @@ const AllProducts = () => {
 
   return (
 
-    <div className="products-grid">
+    <div className="products-page-grid">
       {products.map((product) => (
         
-        <div key={product.product_id} className="card">
+        <div key={product.product_id} className="products-page-card">
         
-          <div className="medium-image">
+          <div>
           
           <a href={`/products/${product.product_id}`}>
-          <img src={product.images[0]} alt={product.name} />
+          <img className="img-medium" src={product.images[0]} alt={product.name} />
             </a>
           
           </div>
         
-          <div className="product-name">
+          <div className="product-page-name">
             {product.name}
           </div>
           
-          <div className="product-price">
+          <div className="product-page-price">
             {product.price}$
           </div>
         

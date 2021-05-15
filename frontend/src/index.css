@@ -1,3 +1,6 @@
+
+/* Common styles */
+
 .main{
     height: 551px;
 }
@@ -10,4 +13,102 @@
     color: whitesmoke;
     text-align: center;
     
+}
+
+
+/* home screen - products */
+
+.products-page-grid {
+    margin: 2px;
+    padding: 2px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 2px;
+    
+}
+
+.img-medium{
+    height: 250px;
+    width: 100%;
+    border-radius: 2px;
+}
+
+.products-page-card{
+    border: 1px solid rgb(156, 156, 156);
+    border-radius: 4px;
+    width: 100%;
+    height: 100%;
+    padding: 2px;
+}
+
+.product-page-name{
+
+    border: none;
+
+}
+
+.product-page-price{
+
+    border: none;
+    color: brown;
+    
+}
+
+
+/* product details screen */
+
+.product-detail-grid{
+    margin: 10px;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    justify-content: space-between;
+       
+}
+
+.image-box{
+    border: 1px solid black;
+    border-radius:4px;
+    width: 60%;
+    height: 500px;
+    padding: 2px;
+}
+
+.img-large{
+    width: 100%;
+    height: 100%;
+    border-radius: 2px;
+}
+
+.add-button{
+
+    border: none;
+    background-color: rgb(255, 205, 42);
+    border-radius: 4px;
+    width: 20%;
+    
+    
+}
+
+.details-block{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    
+}
+
+.products-number{
+
+    width: 10%;
+    outline: none;
+    
+}
+
+.button-padding{
+padding-top: 10px;
+}
+
+
+.add-button:hover{
+    background-color: rgb(255, 196, 0);
 }

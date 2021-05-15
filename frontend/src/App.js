@@ -2,7 +2,7 @@ import React from "react";
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import { BrowserRouter,Route } from "react-router-dom";
 import HomeScreen from "./components/HomeScreen";
-import ProductScreen from "./components/ProductScreen";
+import ProductDetailScreen from "./components/ProductDetailScreen";
 import './index.css';
 
 
@@ -14,7 +14,7 @@ function App() {
 
     
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-        <Navbar.Brand href="#home">Goodies Shop</Navbar.Brand>
+        <Navbar.Brand href="/">Goodies Shop</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
@@ -33,7 +33,7 @@ function App() {
             </NavDropdown>
           </Nav>
           <Nav>
-            <Nav.Link href="#deets">Add to cart</Nav.Link>
+            <Nav.Link href="#deets">Cart</Nav.Link>
             <Nav.Link eventKey={2} href="#memes">
               Sign in
             </Nav.Link>
@@ -46,7 +46,7 @@ function App() {
     
       <div classname="main">
       <Route path="/" component={HomeScreen} exact></Route>
-      <Route path="/products/:id" component={ProductScreen}></Route>
+      <Route path="/products/:id" component={ProductDetailScreen}></Route>
       </div>
 
 
