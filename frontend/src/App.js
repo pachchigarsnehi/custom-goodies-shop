@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  Navbar,
-  Nav,
-  NavDropdown,
-  Container
-} from "react-bootstrap";
+import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
 import { BrowserRouter, Route } from "react-router-dom";
 import HomeScreen from "./components/HomeScreen";
 import ProductDetailScreen from "./components/ProductDetailScreen";
