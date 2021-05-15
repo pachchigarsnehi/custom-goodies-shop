@@ -1,18 +1,11 @@
+import React from "react";
+import "../index.css";
+import SelectProducts from "../components/ProductDetails";
 
-import React from 'react';
-import '../index.css';
-import SelectProducts from '../components/ProductDetails'; 
-
-
-
-
-  export default function ProductDetailScreen() {
-  
-    return (
-
+export default function ProductDetailScreen() {
+  return (
     <div>
-    <SelectProducts />
+      <SelectProducts />
     </div>
-    )
-};
-
+  );
+}
