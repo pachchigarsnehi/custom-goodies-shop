@@ -17,7 +17,6 @@ const getCategoryByID = async (request, response) => {
       }
       response.status(200).json(results.rows)
     })
-    console.log('asd')
 }
 
 module.exports = {
