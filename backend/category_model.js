@@ -1,4 +1,4 @@
-const pool = require('./pg_pool').pool
+const pool = require('./pg_pool')
 
 const getCategories = async (request, response) => {
     await pool.query('SELECT * FROM category ORDER BY category_id ASC', (error, results) => {

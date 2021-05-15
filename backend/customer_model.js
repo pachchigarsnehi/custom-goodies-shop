@@ -1,4 +1,4 @@
-const pool = require('./pg_pool').pool
+const pool = require('./pg_pool')
 
 
 const getCustomers = async (request, response) => {

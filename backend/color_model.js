@@ -1,4 +1,4 @@
-const pool = require('./pg_pool').pool
+const pool = require('./pg_pool')
 
 const getColors = async (request, response) => {
     await pool.query('SELECT * FROM color ORDER BY color_id ASC', (error, results) => {

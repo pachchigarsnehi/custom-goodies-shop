@@ -1,4 +1,4 @@
-const pool = require('./pg_pool').pool
+const pool = require('./pg_pool')
 
 const getFonts = async (request, response) => {
     await pool.query('SELECT * FROM fonts ORDER BY font_id ASC', (error, results) => {
