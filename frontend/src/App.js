@@ -2,7 +2,11 @@ import React from "react";
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import { BrowserRouter,Route } from "react-router-dom";
 import HomeScreen from "./components/HomeScreen";
+<<<<<<< HEAD
 import ProductDetailScreen from "./components/ProductDetailScreen";
+=======
+import ProductScreen from "./components/ProductScreen";
+>>>>>>> main
 import './index.css';
 
 

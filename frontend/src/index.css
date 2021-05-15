@@ -112,3 +112,13 @@ padding-top: 10px;
 .add-button:hover{
     background-color: rgb(255, 196, 0);
 }
+
+.footer{
+    height: 50px;
+    width: 100%;
+    padding: 2px;
+    background-color:#1a1a1a;
+    color: whitesmoke;
+    text-align: center;
+    
+}
