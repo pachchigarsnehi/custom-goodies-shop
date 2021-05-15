@@ -135,3 +135,11 @@ INSERT INTO BaseProducts(name, category_id, price, color_id) VALUES(
     6
 );
 
+
+UPDATE BaseProducts
+SET image = (SELECT images[1] FROM BaseProducts where product_id=1)
+where product_id=1;
+ALTER TABLE BaseProducts 
+DROP COLUMN images;
+ALTER TABLE BaseProducts 
+RENAME COLUMN image TO images;
