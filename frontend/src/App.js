@@ -3,10 +3,7 @@ import {
   Navbar,
   Nav,
   NavDropdown,
-  Container,
-  NavbarBrand,
-  Col,
-  Row,
+  Container
 } from "react-bootstrap";
 import { BrowserRouter, Route } from "react-router-dom";
 import HomeScreen from "./components/HomeScreen";
