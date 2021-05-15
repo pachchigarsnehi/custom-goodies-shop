@@ -1,27 +1,36 @@
 .products-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    
 }
 
-img {
-  height: 250px;
-  width: 100%;
-  border-radius: 2px;
+img{
+    height: 250px;
+    width: 100%;
+    border-radius: 2px;
 }
 
-.card {
-  border: 1px solid black;
-  border-radius: 4px;
-  width: 100%;
-  height: 100%;
-  padding: 2px;
+.card{
+    border: 1px solid black;
+    border-radius: 4px;
+    width: 100%;
+    height: 100%;
+    padding: 2px;
 }
 
-.product-name {
-  border: none;
+.product-name{
+
+    border: none;
+
 }
 
-.product-price {
-  border: none;
-  color: brown;
+.product-price{
+
+    border: none;
+    color: brown;
+    
 }
+
+
+
+  
