@@ -43,7 +43,7 @@ const SelectProducts = () => {
           <div className="image-box">
             <img
               className="img-large"
-              src={detailProduct.images}
+              src={detailProduct.image}
               alt={detailProduct.name}
             ></img>
           </div>

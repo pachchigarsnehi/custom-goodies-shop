@@ -142,4 +142,4 @@ where product_id=1;
 ALTER TABLE BaseProducts 
 DROP COLUMN images;
 ALTER TABLE BaseProducts 
-RENAME COLUMN image TO images;
+RENAME COLUMN images TO image;

@@ -29,7 +29,7 @@ const AllProducts = () => {
             <a href={`/products/${product.product_id}`}>
               <img
                 className="img-medium"
-                src={product.images[0]}
+                src={product.image}
                 alt={product.name}
               />
             </a>
