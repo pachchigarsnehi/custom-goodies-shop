@@ -3,8 +3,9 @@ import {
   Container,
   Card,
   Button,
-  InputGroup,
-  FormControl,
+  Form,
+  Row,
+  Col,
 } from "react-bootstrap";
 
 const Login = () => {
@@ -17,31 +18,34 @@ const Login = () => {
         marginTop: "125px",
       }}
     >
-      <Card className="text-center" style={{ width: "25rem" }}>
+      <Card className="text-center" style={{ width: "35rem" }}>
         <Card.Header>Login</Card.Header>
-        <Card.Body>
-          <Card.Title>Enter Account Credentials</Card.Title>
-          <InputGroup className="mb-3">
-            <InputGroup.Prepend>
-              <InputGroup.Text id="email">Email</InputGroup.Text>
-            </InputGroup.Prepend>
-            <FormControl
-              aria-label="Default"
-              aria-describedby="inputGroup-sizing-default"
-            />
-          </InputGroup>
-          <br />
-          <InputGroup className="mb-3">
-            <InputGroup.Prepend>
-              <InputGroup.Text id="password">Password</InputGroup.Text>
-            </InputGroup.Prepend>
-            <FormControl
-              aria-label="Default"
-              aria-describedby="inputGroup-sizing-default"
-            />
-          </InputGroup>
-          <Button variant="primary">Log In</Button>
-        </Card.Body>
+        <Form>
+          <Form.Group as={Row} controlId="formHorizontalEmail">
+            <Form.Label column sm={2}>
+              Email
+            </Form.Label>
+            <Col sm={10}>
+              <Form.Control type="email" placeholder="Email" />
+            </Col>
+          </Form.Group>
+
+          <Form.Group as={Row} controlId="formHorizontalPassword">
+            <Form.Label column sm={2}>
+              Password
+            </Form.Label>
+            <Col sm={10}>
+              <Form.Control type="password" placeholder="Password" />
+            </Col>
+          </Form.Group>
+          <fieldset></fieldset>
+
+          <Form.Group as={Row}>
+            <Col sm={{ span: 10, offset: 2 }}>
+              <Button type="submit">Sign in</Button>
+            </Col>
+          </Form.Group>
+        </Form>
       </Card>
     </Container>
   );
