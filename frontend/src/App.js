@@ -1,8 +1,9 @@
 import React from "react";
-import { Navbar, Nav, NavDropdown } from "react-bootstrap";
+import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
 import { BrowserRouter, Route } from "react-router-dom";
 import HomeScreen from "./components/HomeScreen";
 import ProductDetailScreen from "./components/ProductDetailScreen";
+import Login from "./components/Login";
 import "./index.css";
 
 function App() {
@@ -29,8 +30,8 @@ function App() {
           </Nav>
           <Nav>
             <Nav.Link href="#deets">Cart</Nav.Link>
-            <Nav.Link eventKey={2} href="#memes">
-              Sign in
+            <Nav.Link eventKey={2} href="/login">
+              Log in
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
@@ -39,9 +40,16 @@ function App() {
       <div classname="main">
         <Route path="/" component={HomeScreen} exact></Route>
         <Route path="/products/:id" component={ProductDetailScreen}></Route>
+        <Route path="/login" component={Login}></Route>
       </div>
 
-      <div className="footer">Copyright CSUN</div>
+      <div className="fixed-bottom">
+        <Navbar bg="dark" variant="dark">
+          <Container>
+            <Navbar.Text>Copyright @CSUN</Navbar.Text>
+          </Container>
+        </Navbar>
+      </div>
     </BrowserRouter>
   );
 }
