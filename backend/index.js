@@ -4,11 +4,13 @@ const product_model = require("./products_model")
 const category_model = require("./category_model")
 const color_model = require("./color_model")
 const font_model = require("./font_model")
+const cart_model = require("./cart_model")
 
 const app = express();
 const port = process.env.PORT || "8000";
 
 app.use(express.json())
+
 app.use(function (req, res, next) {
   res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
   res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
@@ -43,6 +45,12 @@ app.get('/color/:id', color_model.getColorByID)
 
 app.get('/fonts', font_model.getFonts)
 app.get('/fonts/:id', font_model.getFontByID)
+
+app.get('/cart', cart_model.getCartAll)
+app.get('/cart/customer/:id', cart_model.getCartByCustomerID)
+app.post('/cart', cart_model.createCartEntry)
+app.put('/cart/:id', cart_model.updateCartEntryByID)
+app.delete('cart/:id', cart_model.deleteCartEntry)
 
 app.listen(port, () => {
     console.log(`Listening to requests on http://localhost:${port}`);

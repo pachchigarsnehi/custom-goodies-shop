@@ -143,3 +143,28 @@ ALTER TABLE BaseProducts
 DROP COLUMN images;
 ALTER TABLE BaseProducts 
 RENAME COLUMN images TO image;
+
+ALTER TABLE BaseProducts
+DROP CONSTRAINT baseproducts_pkey;
+
+ALTER TABLE BaseProducts 
+ADD PRIMARY KEY (product_id);
+
+
+ALTER TABLE BaseProducts ADD PRIMARY KEY (product_id);
+CREATE TABLE IF NOT EXISTS cart (
+   cart_id serial,
+   customer_id INT NOT NULL,
+   product_id INT NOT NULL,
+   font VARCHAR(25),
+   quote VARCHAR(50),
+   price INT NOT NULL,
+   quantity INT NOT NULL,
+   created_on TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+   PRIMARY KEY (cart_id),
+   FOREIGN KEY (customer_id) REFERENCES customers(id),
+   FOREIGN KEY (product_id) REFERENCES BaseProducts(product_id)
+);
+alter table cart alter column name drop not null;
+ALTER TABLE cart 
+DROP COLUMN name;
