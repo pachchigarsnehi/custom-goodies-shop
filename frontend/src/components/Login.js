@@ -6,9 +6,16 @@ import {
   Form,
   Row,
   Col,
+  InputGroup,
 } from "react-bootstrap";
 
 const Login = () => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(event);
+    console.log(event.target.elements.email.value);
+    console.log(event.target.password.value);
+  };
   return (
     <Container
       style={{
@@ -20,22 +27,42 @@ const Login = () => {
     >
       <Card className="text-center" style={{ width: "35rem" }}>
         <Card.Header>Login</Card.Header>
-        <Form>
-          <Form.Group as={Row} controlId="formHorizontalEmail">
+        <Form onSubmit={handleSubmit}>
+          <Form.Group as={Row} controlId="validateEmail">
             <Form.Label column sm={2}>
               Email
             </Form.Label>
             <Col sm={10}>
-              <Form.Control type="email" placeholder="Email" />
+              <InputGroup hasValidation>
+                <Form.Control
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                  required
+                />
+                <Form.Control.Feedback type="invalid">
+                  Please enter an email
+                </Form.Control.Feedback>
+              </InputGroup>
             </Col>
           </Form.Group>
 
-          <Form.Group as={Row} controlId="formHorizontalPassword">
+          <Form.Group as={Row} controlId="validatePassword">
             <Form.Label column sm={2}>
               Password
             </Form.Label>
             <Col sm={10}>
-              <Form.Control type="password" placeholder="Password" />
+              <InputGroup hasValidation>
+                <Form.Control
+                  type="password"
+                  name="password"
+                  placeholder="Password"
+                  required
+                />
+                <Form.Control.Feedback type="invalid">
+                  Please enter password
+                </Form.Control.Feedback>
+              </InputGroup>
             </Col>
           </Form.Group>
           <fieldset></fieldset>
