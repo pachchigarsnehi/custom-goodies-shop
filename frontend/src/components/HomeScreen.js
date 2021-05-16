@@ -3,13 +3,11 @@ import "../components/products.css";
 import AllProducts from "./Products";
 import Carousel from "../component/Carousel";
 import image1 from "../assets/image1.jpg";
-import image2 from '../assets/image2.jpg';
+import image2 from "../assets/image2.jpg";
 import image3 from "../assets/image3.jpg";
 
 // function to get and show all products
-let images=[
-  image1,image2,image3,image2
-]
+let images = [image1, image2, image3, image2];
 export default function HomeScreen(props) {
   const [products, setProducts] = useState([]);
 
@@ -28,11 +26,10 @@ export default function HomeScreen(props) {
   useEffect(() => {
     getProducts();
   }, []);
-  
 
   return (
     <div>
-      <Carousel data={images}/>
+      <Carousel data={images} />
       <AllProducts products={products} />
     </div>
   );
