@@ -28,7 +28,7 @@ export default function HomeScreen(props) {
   }, []);
 
   return (
-    <div>
+    <div className="main">
       <Carousel data={images} />
       <AllProducts products={products} />
     </div>

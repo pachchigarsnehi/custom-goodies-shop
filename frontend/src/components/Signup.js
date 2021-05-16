@@ -8,20 +8,11 @@ import {
   Col,
   InputGroup,
 } from "react-bootstrap";
-import { BrowserRouter, Route } from "react-router-dom";
-
 import "../index.css";
 
-const Login = () => {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log(event);
-    console.log(event.target.elements.email.value);
-    console.log(event.target.password.value);
-  };
+const Signup = () => {
   return (
-    
-    <div>
+    <div class="main-sign-up">
     
     <Container
       style={{
@@ -32,13 +23,35 @@ const Login = () => {
       }}
     >
       <Card className="text-center" style={{ width: "35rem" }}>
-        <Card.Header>Login</Card.Header>
-        <Form onSubmit={handleSubmit}>
+        <Card.Header>Sign up</Card.Header>
+        <Form>
+
+        <Form.Group as={Row} controlId="validateEmail">
+        <Form.Label column sm={4}>
+          Enter your name
+        </Form.Label>
+        <Col sm={12}>
+          <InputGroup hasValidation>
+            <Form.Control
+              type="name"
+              name="name"
+              placeholder="Name"
+              required
+            />
+            <Form.Control.Feedback type="invalid">
+              Please enter
+            </Form.Control.Feedback>
+          </InputGroup>
+        </Col>
+      </Form.Group>
+
+
+
           <Form.Group as={Row} controlId="validateEmail">
-            <Form.Label column sm={2}>
-              Email
+            <Form.Label column sm={4}>
+             Enter your Email
             </Form.Label>
-            <Col sm={10}>
+            <Col sm={12}>
               <InputGroup hasValidation>
                 <Form.Control
                   type="email"
@@ -54,10 +67,10 @@ const Login = () => {
           </Form.Group>
 
           <Form.Group as={Row} controlId="validatePassword">
-            <Form.Label column sm={2}>
-              Password
+            <Form.Label column sm={4}>
+            Set your Password
             </Form.Label>
-            <Col sm={10}>
+            <Col sm={12}>
               <InputGroup hasValidation>
                 <Form.Control
                   type="password"
@@ -73,21 +86,40 @@ const Login = () => {
           </Form.Group>
           <fieldset></fieldset>
 
+          <Form.Group as={Row} controlId="validatePassword">
+          <Form.Label column sm={4}>
+            Re-enter Password
+          </Form.Label>
+          <Col sm={12}>
+            <InputGroup hasValidation>
+              <Form.Control
+                type="password"
+                name="password"
+                placeholder="Confirm password"
+                required
+              />
+              <Form.Control.Feedback type="invalid">
+                Please re-enter password
+              </Form.Control.Feedback>
+            </InputGroup>
+          </Col>
+        </Form.Group>
+        <fieldset></fieldset>
+
           <Form.Group as={Row}>
             <Col sm={{ span: 10, offset: 2 }}>
-              <Button type="submit">Sign in</Button>
+              <Button type="submit">Sign up</Button>
             </Col>
           </Form.Group>
         </Form>
       </Card>
     </Container>
     
-    <div className="sign-up-link"><p>Dont have an account? Sign up <a href="/signup"> here</a></p></div>
-    
+   
+    <div className="sign-up-link"><p>Already have an account? <a href="/login"> Sign in</a></p></div>
     
     </div>
-  
   );
 };
 
-export default Login;
+export default Signup;
