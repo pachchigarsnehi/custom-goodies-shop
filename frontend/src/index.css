@@ -1,7 +1,7 @@
 /* Common styles */
 
 .main {
-  height: 551px;
+  min-height: 551px;
   overflow: auto;
   padding: 5px 2px 5px 2px;
 }
@@ -18,13 +18,21 @@
 /* home screen - products */
 
 .products-page-grid {
-  margin: 2px;
-  padding: 2px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 2px;
+ display: flex;
+ flex-direction: row;
+flex-wrap: wrap;
+justify-content: center;
 }
+.carousel{
+  height:500px
+}
+@media (max-width:400px){
+  .carousel{
+    height:200px;
+    display:none
+  }
 
+}
 .img-medium {
   height: 250px;
   width: 100%;
@@ -34,7 +42,8 @@
 .products-page-card {
   border: 1px solid rgb(156, 156, 156);
   border-radius: 4px;
-  width: 100%;
+  width: 350px;
+  margin: 5px;
   height: 100%;
   padding: 2px;
 }
