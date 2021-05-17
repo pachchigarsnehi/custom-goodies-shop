@@ -165,6 +165,6 @@ CREATE TABLE IF NOT EXISTS cart (
    FOREIGN KEY (customer_id) REFERENCES customers(id),
    FOREIGN KEY (product_id) REFERENCES BaseProducts(product_id)
 );
-alter table cart alter column name drop not null;
-ALTER TABLE cart 
-DROP COLUMN name;
+ALTER TABLE cart
+ADD COLUMN ordered BOOLEAN DEFAULT false;
+
