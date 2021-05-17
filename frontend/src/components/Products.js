@@ -39,7 +39,7 @@ const AllProducts = ({products}) => {
 
           <div className="product-page-name">{product.name}</div>
 
-          <div className="product-page-price">{product.price}$</div>
+          <div className="product-page-price">${product.price}</div>
         </div>
       ))}
     </div>

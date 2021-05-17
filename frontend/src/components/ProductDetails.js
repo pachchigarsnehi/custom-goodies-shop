@@ -51,7 +51,7 @@ const SelectProducts = () => {
 
           <div className="details-block">
             <h1>{detailProduct.name}</h1>
-            Price : {detailProduct.price}$
+            Price : ${detailProduct.price}
             
             <label for="orders">Order quantity :</label>
             <select className="products-number" name="order-qty" id="order-qty">
