@@ -4,6 +4,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 import HomeScreen from "./components/HomeScreen";
 import ProductDetailScreen from "./components/ProductDetailScreen";
 import Login from "./components/Login";
+import Signup from './components/Signup';
 import "./index.css";
 
 function App() {
@@ -14,9 +15,7 @@ function App() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link href="#features">Features</Nav.Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
-            <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
+            <NavDropdown title="Shop By Category" id="collasible-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
                 Another action
@@ -27,11 +26,13 @@ function App() {
                 Separated link
               </NavDropdown.Item>
             </NavDropdown>
+            <Nav.Link href="#features">Your Orders</Nav.Link>
           </Nav>
           <Nav>
+          <Nav.Link href="#deets">Hello, Guest</Nav.Link>
             <Nav.Link href="#deets">Cart</Nav.Link>
             <Nav.Link eventKey={2} href="/login">
-              Log in
+              Sign in
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
@@ -41,6 +42,7 @@ function App() {
         <Route path="/" component={HomeScreen} exact></Route>
         <Route path="/products/:id" component={ProductDetailScreen}></Route>
         <Route path="/login" component={Login}></Route>
+        <Route path="/signup" component={Signup}></Route>
       </div>
 
       <div className="fixed-bottom">

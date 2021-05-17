@@ -8,6 +8,7 @@ const SelectProducts = () => {
   console.log("Params", params);
 
   const [detailProduct, setdetailProduct] = useState([]);
+  const [updatecart, updatecartmessage] = useState(<p></p>);
 
   // function to get a product
   const getProducts = async () => {
@@ -51,8 +52,9 @@ const SelectProducts = () => {
           <div className="details-block">
             <h1>{detailProduct.name}</h1>
             Price : {detailProduct.price}$
-            <label for="orders">Orders number</label>
-            <select className="products-number" name="orders" id="orders">
+            
+            <label for="orders">Order quantity :</label>
+            <select className="products-number" name="order-qty" id="order-qty">
               <optgroup>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -60,8 +62,29 @@ const SelectProducts = () => {
                 <option value="4">4</option>
               </optgroup>
             </select>
+          
+            
+            <label for="customize-text">Text you want on you goodie :</label>
+
+            <textarea id="customize-text" name="customize-text" rows="2" cols="1"
+            maxlength="20" placeholder="Enter text here(max. 20 chars)">
+            </textarea>
+
+            <label for="text-font">Pick text font :</label>
+            <select className="products-number" name="text-font" id="text-font">
+              <optgroup>
+                <option value="1">Arial</option>
+                <option value="2">Impact</option>
+                <option value="3">San Serif</option>
+                
+              </optgroup>
+            </select>
+
             <div className="button-padding">
-              <button className="add-button">Add to Cart</button>
+              <button className="add-button" onClick={()=>{
+                updatecartmessage(<p>Added to cart</p>);
+              }}>Add to Cart</button>
+                {updatecart}
             </div>
           </div>
         </div>

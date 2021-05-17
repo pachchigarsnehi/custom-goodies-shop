@@ -2,6 +2,8 @@
 
 .main {
   height: 551px;
+  overflow: auto;
+  padding: 5px 2px 5px 2px;
 }
 
 .footer {
@@ -103,4 +105,25 @@
   background-color: #1a1a1a;
   color: whitesmoke;
   text-align: center;
+}
+
+
+textarea{
+  width: 240px;
+  height: 30px;
+  outline: none;
+}
+
+/* sign in page */
+
+.sign-up-link{
+  text-align: center;
+  padding-top: 7px;
+}
+
+.main-sign-up 
+{
+  height: 545px;
+  overflow: auto;
+  padding-bottom: 40px;
 }
