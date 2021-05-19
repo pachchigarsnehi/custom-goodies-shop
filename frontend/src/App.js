@@ -59,7 +59,7 @@ function App(props) {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
             <NavDropdown
-              style={{ color: "black", backgroundColor: "#fff" }}
+              style={{ color: "black", backgroundColor: "#FFFFFF" }}
               title="Products"
               id="collasible-nav-dropdown"
             >
