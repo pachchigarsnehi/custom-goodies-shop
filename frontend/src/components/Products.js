@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "../index.css";
 
-const AllProducts = () => {
+const AllProducts = ({ products }) => {
   //use state and hooks
-  const [products, setProducts] = useState([]);
+  {
+    /*const [products, setProducts] = useState([]);
 
   // function to get and show all products
   const getProducts = async () => {
@@ -20,24 +22,26 @@ const AllProducts = () => {
   useEffect(() => {
     getProducts();
   }, []);
+*/
+  }
 
   return (
     <div className="products-page-grid">
       {products.map((product) => (
         <div key={product.product_id} className="products-page-card">
           <div>
-            <a href={`/products/${product.product_id}`}>
+            <Link to={`/products/${product.product_id}`}>
               <img
                 className="img-medium"
                 src={product.image}
                 alt={product.name}
               />
-            </a>
+            </Link>
           </div>
 
           <div className="product-page-name">{product.name}</div>
 
-          <div className="product-page-price">{product.price}$</div>
+          <div className="product-page-price">${product.price}</div>
         </div>
       ))}
     </div>
