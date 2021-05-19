@@ -30,6 +30,7 @@ app.get("/customers/:id", customer_model.getCustomerByID);
 app.post("/customers", customer_model.createCustomer);
 app.put("/customers/:id", customer_model.updateCustomer);
 app.delete("/customers/:id", customer_model.deleteCustomer);
+app.post("/customer/login", customer_model.authenticateUser);
 
 app.get("/products", product_model.getBaseProducts);
 app.get("/products/:id", product_model.getBaseProductByID);

@@ -78,10 +78,25 @@ const deleteCustomer = async (request, response) => {
   );
 };
 
+const authenticateUser = async (request, response) => {
+  const { email, password } = request.body;
+  await pool.query(
+    "SELECT * FROM customers where email = $1 and password = $2 ",
+    [email, password],
+    (error, results) => {
+      if (error) {
+        response.status(500).send(error);
+      }
+      response.status(200).json(results.rows);
+    }
+  );
+};
+
 module.exports = {
   getCustomers,
   getCustomerByID,
   createCustomer,
   updateCustomer,
   deleteCustomer,
+  authenticateUser,
 };
