@@ -36,9 +36,11 @@ const Login = () => {
       if (response.status === 200) {
         console.log(authUser);
         console.log("is authenticated!");
+        alert("Log in success");
       }
     } catch (err) {
       console.error("error happened", err.message);
+      alert("Authentication failed");
     }
   };
   return (
