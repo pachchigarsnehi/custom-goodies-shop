@@ -83,6 +83,14 @@ function App(props) {
               >
                 All Products
               </NavDropdown.Item>
+            */}
+              <NavDropdown.Item
+                onClick={() => {
+                  props.history.push("/Categories/products");
+                }}
+              >
+                All Products
+              </NavDropdown.Item>
             </NavDropdown>
             <Nav.Link>
               <Link
