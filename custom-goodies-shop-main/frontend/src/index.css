@@ -1,0 +1,141 @@
+/* Common styles */
+
+.main {
+  min-height: 551px;
+  overflow: auto;
+  padding: 5px 2px 5px 2px;
+}
+
+.footer {
+  height: 50px;
+  width: 100%;
+  padding: 2px;
+  background-color: #1a1a1a;
+  color: whitesmoke;
+  text-align: center;
+}
+
+/* home screen - products */
+
+.products-page-grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-block-end: 5em;
+}
+.carousel {
+  height: 500px;
+}
+@media (max-width: 400px) {
+  .carousel {
+    height: 200px;
+    display: none;
+  }
+}
+.img-medium {
+  height: 250px;
+  width: 100%;
+  border-radius: 2px;
+}
+.navbar-dark .navbar-nav .nav-link {
+  color: black !important;
+}
+.products-page-card {
+  border: 1px solid rgb(156, 156, 156);
+  border-radius: 4px;
+  width: 350px;
+  margin: 5px;
+  height: 100%;
+  padding: 2px;
+}
+
+.product-page-name {
+  border: none;
+}
+
+.product-page-price {
+  border: none;
+  color: brown;
+}
+
+/* product details screen */
+
+.product-detail-grid {
+  margin: 10px;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: space-between;
+}
+
+.image-box {
+  border: 1px solid black;
+  border-radius: 4px;
+  width: 60%;
+  height: 500px;
+  padding: 2px;
+}
+.historyList p {
+  margin: 0px;
+}
+
+.img-large {
+  width: 100%;
+  height: 100%;
+  border-radius: 2px;
+}
+
+.add-button {
+  border: none;
+  background-color: rgb(255, 205, 42);
+  border-radius: 4px;
+  width: 20%;
+}
+
+.details-block {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.products-number {
+  width: 10%;
+  outline: none;
+}
+
+.button-padding {
+  padding-top: 10px;
+}
+
+.add-button:hover {
+  background-color: rgb(255, 196, 0);
+}
+
+.footer {
+  height: 50px;
+  width: 100%;
+  padding: 2px;
+  background-color: #1a1a1a;
+  color: whitesmoke;
+  text-align: center;
+}
+
+textarea {
+  width: 240px;
+  height: 30px;
+  outline: none;
+}
+
+/* sign in page */
+
+.sign-up-link {
+  text-align: center;
+  padding-top: 7px;
+}
+
+.main-sign-up {
+  height: 545px;
+  overflow: auto;
+  padding-bottom: 40px;
+}
