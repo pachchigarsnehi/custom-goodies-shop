@@ -7,6 +7,7 @@ import {
   Row,
   Col,
   InputGroup,
+  Alert,
 } from "react-bootstrap";
 import { BrowserRouter, Route, Link } from "react-router-dom";
 import Signup from "./Signup";
@@ -14,11 +15,31 @@ import Signup from "./Signup";
 import "../index.css";
 
 const Login = () => {
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     console.log(event);
     console.log(event.target.elements.email.value);
     console.log(event.target.password.value);
+    let userData = {
+      email: event.target.elements.email.value,
+      password: event.target.password.value,
+    };
+    try {
+      const response = await fetch("http://localhost:8000/customer/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(userData),
+      });
+      const authUser = await response.json();
+      if (response.status === 200) {
+        console.log(authUser);
+        console.log("is authenticated!");
+      }
+    } catch (err) {
+      console.error("error happened", err.message);
+    }
   };
   return (
     <div>

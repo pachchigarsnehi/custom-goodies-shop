@@ -79,15 +79,25 @@ const deleteCustomer = async (request, response) => {
 };
 
 const authenticateUser = async (request, response) => {
+  console.log("do we have anyone here?", request.body);
   const { email, password } = request.body;
   await pool.query(
     "SELECT * FROM customers where email = $1 and password = $2 ",
     [email, password],
     (error, results) => {
       if (error) {
+        console.log("error?");
         response.status(500).send(error);
       }
-      response.status(200).json(results.rows);
+      if (results.rows.length === 0) {
+        console.log("403?");
+        response
+          .status(403)
+          .send("Either Password or email is wrong, access forbidden");
+      }
+      if (results.rows.length > 0) {
+        response.status(200).json(results.rows);
+      }
     }
   );
 };
