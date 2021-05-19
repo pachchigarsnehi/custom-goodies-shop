@@ -59,7 +59,7 @@ function App(props) {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
             <NavDropdown
-              style={{ color: "black", backgroundColor: "#FFFFFF" }}
+
               title="Products"
               id="collasible-nav-dropdown"
             >
@@ -76,14 +76,6 @@ function App(props) {
                 );
               })}
               <NavDropdown.Divider />
-              <NavDropdown.Item
-                onClick={() => {
-                  props.history.push("/Categories/products");
-                }}
-              >
-                All Products
-              </NavDropdown.Item>
-              */}
               <NavDropdown.Item
                 onClick={() => {
                   props.history.push("/Categories/products");
@@ -156,5 +148,7 @@ function App(props) {
     </div>
   );
 }
+
+
 
 export default withRouter(App);
