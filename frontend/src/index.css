@@ -22,6 +22,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+  padding-block-end: 5em;
 }
 .carousel {
   height: 500px;
@@ -37,7 +38,9 @@
   width: 100%;
   border-radius: 2px;
 }
-
+.navbar-dark .navbar-nav .nav-link {
+  color: black !important;
+}
 .products-page-card {
   border: 1px solid rgb(156, 156, 156);
   border-radius: 4px;
@@ -72,6 +75,9 @@
   width: 60%;
   height: 500px;
   padding: 2px;
+}
+.historyList p {
+  margin: 0px;
 }
 
 .img-large {

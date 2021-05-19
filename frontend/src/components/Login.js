@@ -8,7 +8,8 @@ import {
   Col,
   InputGroup,
 } from "react-bootstrap";
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route, Link } from "react-router-dom";
+import Signup from "./Signup";
 
 import "../index.css";
 
@@ -82,8 +83,12 @@ const Login = () => {
 
       <div className="sign-up-link">
         <p>
-          Dont have an account? Sign up <a href="/signup"> here</a>
+          Dont have an account? Sign up <Link to="/Signup">here</Link>
         </p>
+      </div>
+
+      <div>
+        <Route path="/signup" component={Signup}></Route>
       </div>
     </div>
   );
