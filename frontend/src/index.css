@@ -18,20 +18,19 @@
 /* home screen - products */
 
 .products-page-grid {
- display: flex;
- flex-direction: row;
-flex-wrap: wrap;
-justify-content: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
-.carousel{
-  height:500px
+.carousel {
+  height: 500px;
 }
-@media (max-width:400px){
-  .carousel{
-    height:200px;
-    display:none
+@media (max-width: 400px) {
+  .carousel {
+    height: 200px;
+    display: none;
   }
-
 }
 .img-medium {
   height: 250px;
@@ -116,8 +115,7 @@ justify-content: center;
   text-align: center;
 }
 
-
-textarea{
+textarea {
   width: 240px;
   height: 30px;
   outline: none;
@@ -125,13 +123,12 @@ textarea{
 
 /* sign in page */
 
-.sign-up-link{
+.sign-up-link {
   text-align: center;
   padding-top: 7px;
 }
 
-.main-sign-up 
-{
+.main-sign-up {
   height: 545px;
   overflow: auto;
   padding-bottom: 40px;
