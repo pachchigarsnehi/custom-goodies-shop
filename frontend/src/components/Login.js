@@ -14,7 +14,7 @@ import Signup from "./Signup";
 
 import "../index.css";
 
-const Login = () => {
+const Login = (props) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     console.log(event);
@@ -37,6 +37,7 @@ const Login = () => {
         console.log(authUser);
         console.log("is authenticated!");
         alert("Log in success");
+        props.history.push("/");
       }
     } catch (err) {
       console.error("error happened", err.message);
