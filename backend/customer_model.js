@@ -43,12 +43,12 @@ const updateCustomer = async (request, response) => {
 };
 
 const createCustomer = async (request, response) => {
-  const { name, email, address } = request.body;
+  const { name, email, address, password } = request.body;
   console.log(request.body);
   console.log(name, address, email);
   await pool.query(
-    "INSERT INTO customers (name, address, email) VALUES ($1, $2, $3)  RETURNING *",
-    [name, address, email],
+    "INSERT INTO customers (name, address, email, password) VALUES ($1, $2, $3, $4)  RETURNING *",
+    [name, address, email, password],
     (error, results) => {
       if (error) {
         throw error;

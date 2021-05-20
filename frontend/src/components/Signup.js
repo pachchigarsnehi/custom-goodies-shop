@@ -10,7 +10,40 @@ import {
 } from "react-bootstrap";
 import "../index.css";
 
-const Signup = () => {
+const Signup = (props) => {
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    console.log(event);
+    console.log(event.target.elements.email.value);
+    console.log(event.target.password[1].value);
+    let userData = {
+      email: event.target.elements.email.value,
+      name: event.target.elements.name.value,
+      password: event.target.password[1].value,
+      address: "California",
+    };
+    try {
+      const response = await fetch(
+        `http://${process.env.REACT_APP_SERVER_IP}/customers`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(userData),
+        }
+      );
+      const user = await response;
+      console.log("res=", response, response.status);
+      if (response.status === 201) {
+        alert("User Created, login now!");
+        props.history.push("/login");
+      }
+    } catch (err) {
+      console.error("error happened", err.message);
+      alert("User Creation failed");
+    }
+  };
   return (
     <div class="main-sign-up">
       <Container
@@ -23,7 +56,7 @@ const Signup = () => {
       >
         <Card className="text-center" style={{ width: "35rem" }}>
           <Card.Header>Sign up</Card.Header>
-          <Form>
+          <Form onSubmit={handleSubmit}>
             <Form.Group as={Row} controlId="validateEmail">
               <Form.Label column sm={4}>
                 Enter your name

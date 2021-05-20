@@ -25,13 +25,16 @@ const Login = (props) => {
       password: event.target.password.value,
     };
     try {
-      const response = await fetch(`http://${process.env.REACT_APP_SERVER_IP}/customer/login`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(userData),
-      });
+      const response = await fetch(
+        `http://${process.env.REACT_APP_SERVER_IP}/customer/login`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(userData),
+        }
+      );
       const authUser = await response.json();
       if (response.status === 200) {
         console.log(authUser);

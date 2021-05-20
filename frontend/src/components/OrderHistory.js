@@ -7,7 +7,9 @@ export default function OrderHistory() {
   const getCategories = async () => {
     console.log("res is hre");
     try {
-      const response = await fetch(`http://${process.env.REACT_APP_SERVER_IP}/order/customer/2`);
+      const response = await fetch(
+        `http://${process.env.REACT_APP_SERVER_IP}/order/customer/2`
+      );
       const jsonData = await response.json();
       console.log(jsonData);
       // setcategories(jsonData)
