@@ -127,6 +127,10 @@ textarea {
   outline: none;
 }
 
+alert-cart {
+  color: darkgreen;
+}
+
 /* sign in page */
 
 .sign-up-link {
