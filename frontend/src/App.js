@@ -58,11 +58,7 @@ function App(props) {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
-            <NavDropdown
-
-              title="Products"
-              id="collasible-nav-dropdown"
-            >
+            <NavDropdown title="Products" id="collasible-nav-dropdown">
               {categories.map((val, i) => {
                 return (
                   <NavDropdown.Item
@@ -149,7 +145,5 @@ function App(props) {
     </div>
   );
 }
-
-
 
 export default withRouter(App);
