@@ -58,11 +58,7 @@ function App(props) {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
-            <NavDropdown
-              style={{ color: "black", backgroundColor: "#FFFFFF" }}
-              title="Products"
-              id="collasible-nav-dropdown"
-            >
+            <NavDropdown title="Products" id="collasible-nav-dropdown">
               {categories.map((val, i) => {
                 return (
                   <NavDropdown.Item
@@ -76,14 +72,6 @@ function App(props) {
                 );
               })}
               <NavDropdown.Divider />
-              <NavDropdown.Item
-                onClick={() => {
-                  props.history.push("/Categories/products");
-                }}
-              >
-                All Products
-              </NavDropdown.Item>
-
               <NavDropdown.Item
                 onClick={() => {
                   props.history.push("/Categories/products");

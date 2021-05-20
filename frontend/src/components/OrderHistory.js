@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 export default function OrderHistory() {
   const [product, setproduct] = useState([]);
   const [orders, setorders] = useState([]);
+  const [selectedIndex, setselectedIndex] = useState(null);
   const getCategories = async () => {
     console.log("res is hre");
     try {
@@ -16,8 +17,9 @@ export default function OrderHistory() {
       console.error(err);
     }
   };
-  const handleClick = async (item) => {
+  const handleClick = async (item, i) => {
     console.log("res is hre");
+    setselectedIndex(i);
     try {
       const response = await fetch(
         "http://localhost:8000/products/" + item.product_id
@@ -62,7 +64,7 @@ export default function OrderHistory() {
           return (
             <div
               onClick={() => {
-                handleClick(item);
+                handleClick(item, i);
               }}
               className="historyList"
               style={{
@@ -82,7 +84,7 @@ export default function OrderHistory() {
           );
         })}
       </div>
-      {product && (
+      {product.length > 0 && (
         <div
           style={{
             display: "flex",
@@ -97,14 +99,28 @@ export default function OrderHistory() {
             return (
               <div>
                 <h2>Prodcut Details:</h2>
-                <p>Image Place Holder</p>
                 <p>Item: {val.name}</p>
-                <h5>Customizations:</h5>
-                <p>Text Font:</p>
-                <p>Text:</p>
               </div>
             );
           })}
+        </div>
+      )}
+      {orders[selectedIndex] && (
+        <div
+          style={{
+            display: "flex",
+            margin: "10px",
+            justifyContent: "left",
+            padding: "10px",
+            alignItems: "left",
+            backgroundColor: "#eee",
+          }}
+        >
+          <div>
+            <h5>Customizations:</h5>
+            <p>Font: {orders[selectedIndex].font}</p>
+            <p>Quote: "{orders[selectedIndex].quote}"</p>
+          </div>
         </div>
       )}
     </div>

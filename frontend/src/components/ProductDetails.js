@@ -57,8 +57,7 @@ const SelectProducts = () => {
     let newcart = [...cart];
     if (index == -1) {
       newcart.push(obj);
-      updatecartmessage(
-        <p className="alert-cart"> Added to Cart &#10004;</p>);
+      updatecartmessage(<p className="alert-cart"> Added to Cart &#10004;</p>);
     } else {
       newcart[index].quantity =
         parseInt(newcart[index].quantity) + parseInt(quantity);
