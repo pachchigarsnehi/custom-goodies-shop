@@ -25,7 +25,7 @@ const Login = (props) => {
       password: event.target.password.value,
     };
     try {
-      const response = await fetch("http://localhost:8000/customer/login", {
+      const response = await fetch(`http://${process.env.REACT_APP_SERVER_IP}/customer/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

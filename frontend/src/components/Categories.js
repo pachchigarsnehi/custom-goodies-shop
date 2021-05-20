@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import AllProducts from "./Products";
 
-const api1 = "http://localhost:8000/products";
-const api2 = "http://localhost:8000/products/category/";
+const api1 = `http://${process.env.REACT_APP_SERVER_IP}/products`;
+const api2 = `http://${process.env.REACT_APP_SERVER_IP}/products/category/`;
 export default function Categories(props) {
   const [products, setproducts] = useState([]);
   const { id } = props.match.params;

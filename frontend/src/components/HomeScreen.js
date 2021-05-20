@@ -16,7 +16,7 @@ export default function HomeScreen(props) {
   // function to get and show all products
   const getProducts = async () => {
     try {
-      const response = await fetch("http://localhost:8000/products/");
+      const response = await fetch(`http://${process.env.REACT_APP_SERVER_IP}/products/`);
       const jsonData = await response.json();
       console.log(jsonData);
       setProducts(jsonData);

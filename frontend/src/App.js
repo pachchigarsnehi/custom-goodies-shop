@@ -33,7 +33,8 @@ function App(props) {
   const getCategories = async () => {
     console.log("res is hre");
     try {
-      const response = await fetch("http://localhost:8000/category");
+      console.log(process.env.REACT_APP_SERVER_IP)
+      const response = await fetch(`http://${process.env.REACT_APP_SERVER_IP}/category`);
       const jsonData = await response.json();
       console.log(jsonData);
       // setcategories(jsonData)
