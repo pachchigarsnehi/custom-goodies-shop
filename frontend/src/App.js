@@ -16,7 +16,7 @@ import Signup from "./components/Signup";
 import OrderHistory from "./components/OrderHistory";
 import { FiShoppingCart } from "react-icons/fi";
 import "./index.css";
-
+import Cartpage from "./components/cartPage";
 function App(props) {
   const idGenerator = () => {
     let id = Math.floor(Math.random() * 100000);
@@ -135,6 +135,7 @@ function App(props) {
           <Route path="/login" component={Login}></Route>
           <Route path="/signup" component={Signup}></Route>
           <Route path="/OrderHistory" component={OrderHistory}></Route>
+          <Route path="/Cart" component={Cartpage}></Route>
         </Switch>
       </div>
 
