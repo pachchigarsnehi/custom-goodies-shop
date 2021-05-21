@@ -17,7 +17,7 @@ export default function HomeScreen(props) {
   const getProducts = async () => {
     try {
       const response = await fetch(
-        `http://${process.env.REACT_APP_SERVER_IP}/products/`
+        `https://${process.env.REACT_APP_SERVER_IP}/products/`
       );
       const jsonData = await response.json();
       console.log(jsonData);

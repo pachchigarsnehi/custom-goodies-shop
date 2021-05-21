@@ -26,7 +26,7 @@ const Login = (props) => {
     };
     try {
       const response = await fetch(
-        `http://${process.env.REACT_APP_SERVER_IP}/customer/login`,
+        `https://${process.env.REACT_APP_SERVER_IP}/customer/login`,
         {
           method: "POST",
           headers: {

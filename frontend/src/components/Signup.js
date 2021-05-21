@@ -24,7 +24,7 @@ const Signup = (props) => {
     };
     try {
       const response = await fetch(
-        `http://${process.env.REACT_APP_SERVER_IP}/customers`,
+        `https://${process.env.REACT_APP_SERVER_IP}/customers`,
         {
           method: "POST",
           headers: {

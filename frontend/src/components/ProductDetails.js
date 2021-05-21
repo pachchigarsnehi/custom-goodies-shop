@@ -20,7 +20,7 @@ const SelectProducts = () => {
     //console.log("called");
     try {
       const response = await fetch(
-        `http://${process.env.REACT_APP_SERVER_IP}/products/${params.id}`
+        `https://${process.env.REACT_APP_SERVER_IP}/products/${params.id}`
       );
       const jsonData = await response.json();
       console.log(jsonData);
