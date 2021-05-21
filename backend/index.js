@@ -68,7 +68,7 @@ app.get("/order/customer/:id", cart_model.getOrdersByCustomerID);
 // });
 // serve the API with signed certificate on 443 (SSL/HTTPS) port
 const httpsServer = https.createServer({
-  key: fs.readFileSync('/etc/letsencrypt/live/api.getyourgoodie.games/privkey.pe'),
+  key: fs.readFileSync('/etc/letsencrypt/live/api.getyourgoodie.games/privkey.pem'),
   cert: fs.readFileSync('/etc/letsencrypt/live/api.getyourgoodie.games/fullchain.pem'),
 }, app);
 
