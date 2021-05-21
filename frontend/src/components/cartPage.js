@@ -84,3 +84,4 @@ cart.map((item,i)=>{
     </div>
   );
 }
+
