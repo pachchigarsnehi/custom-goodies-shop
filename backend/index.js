@@ -5,6 +5,11 @@ const category_model = require("./category_model");
 const color_model = require("./color_model");
 const font_model = require("./font_model");
 const cart_model = require("./cart_model");
+// import packages
+const https = require('https');
+const fs = require('fs');
+
+
 
 const app = express();
 const port = process.env.PORT || "8000";
@@ -58,6 +63,15 @@ app.delete("cart/:id", cart_model.deleteCartEntry);
 app.put("/order/cart/:id", cart_model.updateCartEntryOrderStatus);
 app.get("/order/customer/:id", cart_model.getOrdersByCustomerID);
 
-app.listen(port, () => {
-  console.log(`Listening to requests on http://localhost:${port}`);
+// app.listen(port, () => {
+//   console.log(`Listening to requests on http://localhost:${port}`);
+// });
+// serve the API with signed certificate on 443 (SSL/HTTPS) port
+const httpsServer = https.createServer({
+  key: fs.readFileSync('/etc/letsencrypt/live/api.getyourgoodie.games/privkey.pe'),
+  cert: fs.readFileSync('/etc/letsencrypt/live/api.getyourgoodie.games/fullchain.pem'),
+}, app);
+
+httpsServer.listen(443, () => {
+    console.log('HTTPS Server running on port 443');
 });
