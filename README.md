@@ -3,8 +3,8 @@ Custom Goodies for everyone - part of COMP584
 
 Portal on: https://www.getyourgoodie.games/
 
-## Architecture of the App
-# todo - add the diagram
+## Architecture of the App Deployment
+![image](https://user-images.githubusercontent.com/26809819/119202839-84989000-ba46-11eb-9e37-4a964aa450f1.png)
 
 ## How to Use
 1. Go to Signup page and add your user - https://www.getyourgoodie.games/Signup
@@ -16,7 +16,8 @@ Portal on: https://www.getyourgoodie.games/
     - ( Cart to checkout functionality broke and we couldnt fix it because of time constraints, but we have a backend API for it [here](https://github.com/pachchigarsnehi/custom-goodies-shop/blob/main/backend/index.js#L63). )
     - Essentially we are making the cart entry ID - as ordered on the backend.
 5. Go to this page - https://www.getyourgoodie.games/OrderHistory to check the order history. It is coming from the database again. (This API endpint  - https://github.com/pachchigarsnehi/custom-goodies-shop/blob/main/backend/index.js#L64 to get orders by customer ID)
-    - Note: Since we broke checkout function while some tests, we are showing the order history of a an existing user by default, whose orders are being fetched on this page. 
+    - On clicking the order history item, we can see the item details.
+    - Note: Since we broke checkout function while some tests, we are showing the order history of a an existing user by default, whose orders are being fetched on this page.
 
 
 Project has 3 components:
